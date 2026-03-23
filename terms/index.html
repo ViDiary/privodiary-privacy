@@ -7,350 +7,251 @@
   <meta name="description" content="Terms of Service for PrivoDiary mobile application." />
   <style>
     :root {
-      --bg: #0f1221;
-      --panel: #171a2b;
-      --panel-2: #1e2238;
-      --text: #e9ecf5;
-      --muted: #aab3c8;
-      --accent: #7c9cff;
-      --border: rgba(255,255,255,0.08);
-      --max: 920px;
+      --bg: #0b1020;
+      --panel: rgba(18, 24, 44, 0.88);
+      --panel-2: rgba(25, 32, 58, 0.92);
+      --text: #edf1fb;
+      --muted: #aeb8d3;
+      --accent: #8ba4ff;
+      --accent-2: #c0ccff;
+      --line: rgba(255,255,255,0.09);
+      --max: 980px;
+      --shadow: 0 16px 40px rgba(0,0,0,0.28);
     }
-
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #0b0e1b 0%, var(--bg) 100%);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.68;
+      background:
+        radial-gradient(circle at top right, rgba(139,164,255,0.18), transparent 28%),
+        radial-gradient(circle at top left, rgba(88,111,201,0.12), transparent 22%),
+        linear-gradient(180deg, #070b16 0%, #0b1020 100%);
     }
-
-    .wrap {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 56px 0 28px;
-      border-bottom: 1px solid var(--border);
-      background: radial-gradient(circle at top right, rgba(124,156,255,0.22), transparent 28%);
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid rgba(124,156,255,0.35);
-      border-radius: 999px;
-      color: #c8d4ff;
-      background: rgba(124,156,255,0.08);
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-    }
-
-    .subtitle {
-      color: var(--muted);
-      max-width: 720px;
-      font-size: 18px;
-      margin: 0;
-    }
-
-    .meta {
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    main {
-      padding: 32px 0 64px;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(12px);
-      background: rgba(15,18,33,0.78);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav .wrap {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 12px 0;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      padding: 8px 12px;
-      border-radius: 999px;
-      white-space: nowrap;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      color: var(--text);
-      border-color: rgba(124,156,255,0.4);
-    }
-
-    .card {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px;
-      margin-bottom: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-    }
-
-    h2 {
-      margin-top: 0;
-      font-size: 24px;
-      letter-spacing: -0.02em;
-    }
-
-    p, li { color: #dfe5f4; }
-    ul { padding-left: 20px; }
+    .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    header { padding: 48px 0 24px; border-bottom: 1px solid var(--line); }
+    .topbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(139,164,255,0.25); background: rgba(139,164,255,0.08); color: var(--accent-2); font-size: 14px; margin-bottom: 18px; }
+    h1 { margin: 0 0 12px; font-size: clamp(34px, 6vw, 56px); line-height: 1.04; letter-spacing: -0.03em; }
+    .subtitle { margin: 0; max-width: 760px; font-size: 18px; color: var(--muted); }
+    .meta { margin-top: 18px; color: var(--muted); font-size: 14px; }
+    .lang-box { min-width: 190px; padding: 12px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,0.04); backdrop-filter: blur(12px); }
+    .lang-label { display: block; margin-bottom: 8px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    select { width: 100%; border: 1px solid rgba(139,164,255,0.22); border-radius: 12px; padding: 10px 12px; background: #0f1529; color: var(--text); font: inherit; }
+    .utility-links { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .utility-links a { color: var(--accent-2); text-decoration: none; font-size: 13px; }
+    nav { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(12px); background: rgba(11, 16, 32, 0.78); border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; gap: 10px; overflow-x: auto; padding: 12px 0; }
+    nav a { white-space: nowrap; text-decoration: none; color: var(--muted); border: 1px solid var(--line); background: rgba(255,255,255,0.04); padding: 8px 12px; border-radius: 999px; font-size: 14px; }
+    nav a:hover, a:hover { color: var(--text); border-color: rgba(139,164,255,0.35); }
+    main { padding: 28px 0 64px; }
+    .note { margin-bottom: 18px; padding: 16px 18px; border-radius: 18px; border: 1px solid rgba(139,164,255,0.18); background: rgba(139,164,255,0.07); color: var(--accent-2); }
+    .card { background: linear-gradient(180deg, var(--panel), var(--panel-2)); border: 1px solid var(--line); border-radius: 24px; padding: 28px; margin-bottom: 18px; box-shadow: var(--shadow); }
+    h2 { margin: 0 0 14px; font-size: 24px; letter-spacing: -0.02em; }
+    p, li { color: var(--text); }
+    ul { padding-left: 22px; }
     strong { color: #fff; }
-    .muted { color: var(--muted); }
-
-    a {
-      color: #c8d4ff;
-    }
-
-    a:hover {
-      color: #ffffff;
-    }
-
-    code.inline {
-      background: rgba(255,255,255,0.08);
-      padding: 2px 6px;
-      border-radius: 6px;
-      color: #dfe5ff;
-    }
-
-    .contact-box {
-      padding: 16px 18px;
-      border: 1px dashed rgba(124,156,255,0.35);
-      border-radius: 16px;
-      background: rgba(124,156,255,0.06);
-      margin-top: 14px;
-    }
-
-    footer {
-      padding: 24px 0 56px;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 640px) {
-      .card { padding: 22px; }
-      .subtitle { font-size: 16px; }
-    }
+    .contact-box { margin-top: 12px; padding: 16px 18px; border: 1px dashed rgba(139,164,255,0.34); border-radius: 16px; background: rgba(139,164,255,0.06); }
+    code.inline { background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 6px; color: #e8edff; }
+    footer { padding: 20px 0 48px; color: var(--muted); border-top: 1px solid var(--line); }
+    @media (max-width: 720px) { .topbar { flex-direction: column; } .lang-box { width: 100%; } .card { padding: 22px; border-radius: 20px; } .subtitle { font-size: 16px; } }
   </style>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <div class="badge">PrivoDiary • Legal</div>
-      <h1>Terms of Service</h1>
-      <p class="subtitle">
-        These Terms of Service govern your access to and use of the PrivoDiary mobile application
-        and related services. By using PrivoDiary, you agree to these Terms.
-      </p>
-      <div class="meta">
-        Effective date: <strong>11.03.2026</strong><br />
-        Last updated: <strong>11.03.2026</strong><br />
-        App name: <strong>PrivoDiary</strong><br />
-        Developer / Publisher: <strong>Yurii Gakhanov</strong>
+      <div class="topbar">
+        <div>
+          <div class="eyebrow" id="eyebrow"></div>
+          <h1 id="pageTitle"></h1>
+          <p class="subtitle" id="pageSubtitle"></p>
+          <div class="meta" id="pageMeta"></div>
+        </div>
+        <div class="lang-box">
+          <label class="lang-label" id="langLabel" for="langSelect"></label>
+          <select id="langSelect" aria-label="Language selector">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="ru">Русский</option>
+          </select>
+          <div class="utility-links">
+            <a href="/" id="privacyLinkTop"></a>
+          </div>
+        </div>
       </div>
     </div>
   </header>
-
   <nav>
-    <div class="wrap">
-      <a href="/">Privacy Policy</a>
-      <a href="#eligibility">Eligibility</a>
-      <a href="#account">Your Account</a>
-      <a href="#privacy">Privacy</a>
-      <a href="#content">User Content</a>
-      <a href="#acceptable-use">Acceptable Use</a>
-      <a href="#billing">Premium & Billing</a>
-      <a href="#third-party">Third-Party Services</a>
-      <a href="#availability">Availability</a>
-      <a href="#termination">Termination</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <div class="wrap" id="navLinks"></div>
   </nav>
-
   <main class="wrap">
-    <section class="card">
-      <h2>Overview</h2>
-      <p>
-        These Terms of Service ("Terms") govern your access to and use of the PrivoDiary mobile application,
-        website, and related services (collectively, the "Service"). By using the Service, you agree to these Terms.
-      </p>
-    </section>
-
-    <section id="eligibility" class="card">
-      <h2>1. Eligibility</h2>
-      <p>
-        You must be at least 13 years old, or the minimum age required in your country, to use the Service.
-        If you are under the age of majority in your jurisdiction, you must have permission from a parent or legal guardian.
-      </p>
-    </section>
-
-    <section id="account" class="card">
-      <h2>2. Your Account</h2>
-      <ul>
-        <li>You are responsible for maintaining the security of your account and device.</li>
-        <li>You are responsible for all activity that occurs under your account.</li>
-        <li>You agree to provide accurate information and keep it up to date.</li>
-      </ul>
-    </section>
-
-    <section id="privacy" class="card">
-      <h2>3. Privacy</h2>
-      <p>
-        Your use of the Service is also governed by our Privacy Policy:
-        <a href="/" rel="noopener">PrivoDiary Privacy Policy</a>.
-      </p>
-    </section>
-
-    <section id="content" class="card">
-      <h2>4. User Content</h2>
-      <p>
-        You retain ownership of your videos, tags, captions, and other content you create in the Service ("User Content").
-      </p>
-      <p>
-        Because PrivoDiary is designed primarily to operate locally on your device, your User Content is generally stored on your device,
-        unless you explicitly export or share it using your device tools or third-party services.
-      </p>
-      <p>
-        You are solely responsible for your User Content and must ensure it does not violate applicable laws or third-party rights.
-      </p>
-    </section>
-
-    <section id="acceptable-use" class="card">
-      <h2>5. Acceptable Use</h2>
-      <p>You agree not to:</p>
-      <ul>
-        <li>Use the Service for illegal, harmful, or fraudulent purposes.</li>
-        <li>Interfere with the Service, reverse engineer it, or bypass security or payment controls.</li>
-        <li>Upload or distribute malware, malicious code, or harmful content.</li>
-        <li>Use the Service in a way that infringes intellectual property, privacy, or other rights of third parties.</li>
-      </ul>
-    </section>
-
-    <section id="billing" class="card">
-      <h2>6. Premium Features and Billing</h2>
-      <ul>
-        <li>Some features may be available only with a paid subscription or purchase ("Premium").</li>
-        <li>Purchases and renewals are processed by the app store provider, such as Google Play, and not directly by us.</li>
-        <li>Subscription pricing, renewals, cancellation terms, and refunds are governed by your app store account terms and policies.</li>
-        <li>If Premium ends, paid features may be disabled and your account may continue in free or limited mode where applicable.</li>
-      </ul>
-    </section>
-
-    <section id="third-party" class="card">
-      <h2>7. Third-Party Services</h2>
-      <p>
-        The Service may rely on third-party services where necessary to support functionality,
-        including Google Sign-In, Google Play, and Google Play Billing.
-      </p>
-      <p>
-        Their terms and privacy policies apply to your use of those components.
-      </p>
-    </section>
-
-    <section id="availability" class="card">
-      <h2>8. Service Availability and Changes</h2>
-      <p>
-        We may update, modify, suspend, or discontinue any part of the Service at any time.
-        We do not guarantee uninterrupted or error-free availability.
-      </p>
-    </section>
-
-    <section id="termination" class="card">
-      <h2>9. Termination</h2>
-      <p>
-        We may suspend or terminate access to the Service if you violate these Terms or if required by law.
-        You may stop using the Service at any time.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>10. Disclaimer</h2>
-      <p>
-        The Service is provided "as is" and "as available", without warranties of any kind, express or implied,
-        including warranties of merchantability, fitness for a particular purpose, and non-infringement,
-        to the extent permitted by law.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>11. Limitation of Liability</h2>
-      <p>
-        To the maximum extent permitted by law, PrivoDiary and its affiliates are not liable for indirect,
-        incidental, special, consequential, or punitive damages, or any loss of data, profits, or revenue
-        arising from your use of the Service.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>12. Indemnification</h2>
-      <p>
-        You agree to indemnify and hold harmless PrivoDiary from claims, liabilities, and expenses arising
-        from your use of the Service or your violation of these Terms.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>13. Governing Law</h2>
-      <p>
-        These Terms are governed by the laws applicable in your jurisdiction, unless mandatory law provides otherwise.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>14. Changes to These Terms</h2>
-      <p>
-        We may update these Terms from time to time. Continued use of the Service after updates means you accept the revised Terms.
-      </p>
-    </section>
-
-    <section id="contact" class="card">
-      <h2>15. Contact</h2>
-      <p>
-        If you have questions about these Terms, contact us here:
-      </p>
-      <div class="contact-box">
-        <strong>Yurii Gakhanov</strong><br />
-        Email: <code class="inline">support@privodiary.com</code><br />
-        Address: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code>
-      </div>
-    </section>
+    <div class="note" id="introNote"></div>
+    <div id="content"></div>
   </main>
-
   <footer>
-    <div class="wrap">
-      © <span id="year"></span> PrivoDiary. All rights reserved.
-    </div>
+    <div class="wrap" id="footerText"></div>
   </footer>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const translations = {
+      en: {
+        htmlLang: 'en',
+        title: 'PrivoDiary Terms of Service',
+        description: 'Terms of Service for PrivoDiary mobile application.',
+        eyebrow: 'PrivoDiary · Legal',
+        pageTitle: 'Terms of Service',
+        pageSubtitle: 'These Terms govern your access to and use of the PrivoDiary mobile application and related services.',
+        pageMeta: 'Effective date: <strong>11 March 2026</strong><br>Last updated: <strong>11 March 2026</strong><br>App name: <strong>PrivoDiary</strong><br>Developer / Publisher: <strong>Yurii Gakhanov</strong>',
+        langLabel: 'Language',
+        privacyLink: 'Privacy Policy',
+        introNote: 'Short version: PrivoDiary is a personal video diary app. You remain responsible for your device, your account, and any content you export or share outside the app.',
+        nav: [
+          ['privacy', '/', 'Privacy'],
+          ['eligibility', '#eligibility', 'Eligibility'],
+          ['account', '#account', 'Account'],
+          ['content', '#content', 'Content'],
+          ['acceptable', '#acceptable', 'Acceptable use'],
+          ['billing', '#billing', 'Premium & billing'],
+          ['liability', '#liability', 'Liability'],
+          ['changes', '#changes', 'Changes'],
+          ['contact', '#contact', 'Contact']
+        ],
+        sections: [
+          ['eligibility', '1. Eligibility', `<p>You may use PrivoDiary only if you are legally capable of entering into a binding agreement under the laws applicable to you.</p><p>If you use the app on behalf of another person or entity, you represent that you are authorised to do so.</p>`],
+          ['account', '2. Your account', `<p>PrivoDiary may require Google Sign-In to access some or all features. You are responsible for keeping control of your Google account, your device, and any authentication methods used to access the app.</p><p>You agree to provide accurate information and not to impersonate another person or entity.</p>`],
+          ['privacy', '3. Privacy', `<p>Your use of PrivoDiary is also governed by our <a href="/?lang=en" id="privacyInlineEn">Privacy Policy</a>. Please read it carefully.</p>`],
+          ['content', '4. User content', `<p>You retain ownership of the content you create in PrivoDiary, including videos, notes, tags, and related material.</p><p>You are solely responsible for the legality, accuracy, and consequences of creating, exporting, backing up, or sharing your content.</p><p>PrivoDiary does not claim ownership over your diary content.</p>`],
+          ['acceptable', '5. Acceptable use', `<p>You agree not to:</p><ul><li>use the app in violation of applicable law or the rights of others;</li><li>attempt to reverse engineer, disrupt, or interfere with the app’s operation;</li><li>use the app to store or distribute content that is unlawful, malicious, or abusive;</li><li>circumvent technical limitations, subscription restrictions, or security mechanisms.</li></ul>`],
+          ['billing', '6. Premium features and billing', `<p>Some features of PrivoDiary may require a paid subscription.</p><p>If you subscribe through Google Play or another app store, billing, renewal, cancellation, refunds, and payment processing are handled by the relevant platform under its own terms.</p><p>Unless otherwise required by law, fees already charged are non-refundable.</p>`],
+          ['availability', '7. Availability and changes', `<p>We may modify, suspend, or discontinue all or part of PrivoDiary at any time, with or without notice, where reasonably necessary.</p><p>We may also change or remove features, including premium features, provided such changes comply with applicable law.</p>`],
+          ['liability', '8. Disclaimer and limitation of liability', `<p>PrivoDiary is provided on an <strong>“as is”</strong> and <strong>“as available”</strong> basis to the maximum extent permitted by law.</p><p>To the maximum extent permitted by applicable law, we disclaim all warranties, whether express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement.</p><p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of data, loss of content, loss of profits, or loss of access resulting from the use of or inability to use the app.</p>`],
+          ['termination', '9. Termination', `<p>We may suspend or terminate your access to PrivoDiary if you violate these Terms, applicable law, or platform policies.</p><p>You may stop using the app at any time by discontinuing use and uninstalling it.</p>`],
+          ['law', '10. Governing law', `<p>These Terms shall be governed by the laws applicable to the developer’s place of establishment, unless mandatory consumer protection laws in your country of residence provide otherwise.</p>`],
+          ['changes', '11. Changes to these Terms', `<p>We may update these Terms from time to time. When we do, we will update the effective date shown above. Continued use of PrivoDiary after the updated Terms become effective constitutes acceptance of the revised Terms, except where applicable law requires a different process.</p>`],
+          ['contact', '12. Contact', `<p>If you have questions regarding these Terms, please contact:</p><div class="contact-box"><strong>Yurii Gakhanov</strong><br>Email: <code class="inline">privodiary@gmail.com</code><br>Address: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code></div>`]
+        ],
+        footer: '© <span id="year"></span> PrivoDiary. All rights reserved.'
+      },
+      ru: {
+        htmlLang: 'ru',
+        title: 'PrivoDiary — Пользовательское соглашение',
+        description: 'Пользовательское соглашение мобильного приложения PrivoDiary.',
+        eyebrow: 'PrivoDiary · Правовая информация',
+        pageTitle: 'Пользовательское соглашение',
+        pageSubtitle: 'Настоящие условия регулируют доступ к мобильному приложению PrivoDiary и его использование.',
+        pageMeta: 'Дата вступления в силу: <strong>11 марта 2026 г.</strong><br>Последнее обновление: <strong>11 марта 2026 г.</strong><br>Название приложения: <strong>PrivoDiary</strong><br>Разработчик / издатель: <strong>Yurii Gakhanov</strong>',
+        langLabel: 'Язык',
+        privacyLink: 'Политика конфиденциальности',
+        introNote: 'Коротко: PrivoDiary — это личный видеодневник. Вы сами отвечаете за своё устройство, свой аккаунт и любой контент, который экспортируете или публикуете за пределами приложения.',
+        nav: [
+          ['privacy', '/', 'Конфиденциальность'],
+          ['eligibility', '#eligibility', 'Допуск'],
+          ['account', '#account', 'Аккаунт'],
+          ['content', '#content', 'Контент'],
+          ['acceptable', '#acceptable', 'Использование'],
+          ['billing', '#billing', 'Премиум'],
+          ['liability', '#liability', 'Ответственность'],
+          ['changes', '#changes', 'Изменения'],
+          ['contact', '#contact', 'Контакты']
+        ],
+        sections: [
+          ['eligibility', '1. Право на использование', `<p>Вы можете использовать PrivoDiary только в том случае, если имеете право заключать обязательные для вас соглашения в соответствии с применимым законодательством.</p><p>Если вы используете приложение от имени другого лица или организации, вы подтверждаете, что имеете на это полномочия.</p>`],
+          ['account', '2. Ваш аккаунт', `<p>Для доступа к части функций PrivoDiary может требоваться Google Sign-In. Вы самостоятельно отвечаете за контроль над своим Google-аккаунтом, устройством и способами аутентификации, используемыми для входа в приложение.</p><p>Вы обязуетесь предоставлять достоверную информацию и не выдавать себя за другое лицо или организацию.</p>`],
+          ['privacy', '3. Конфиденциальность', `<p>Использование PrivoDiary также регулируется нашей <a href="/?lang=ru">Политикой конфиденциальности</a>. Просим внимательно ознакомиться с ней.</p>`],
+          ['content', '4. Пользовательский контент', `<p>Вы сохраняете право собственности на контент, который создаёте в PrivoDiary, включая видео, заметки, теги и связанные материалы.</p><p>Вы несёте полную ответственность за законность, достоверность и последствия создания, экспорта, резервного копирования и публикации такого контента.</p><p>PrivoDiary не заявляет права собственности на ваш дневниковый контент.</p>`],
+          ['acceptable', '5. Допустимое использование', `<p>Вы обязуетесь не:</p><ul><li>использовать приложение с нарушением применимого законодательства или прав третьих лиц;</li><li>пытаться декомпилировать приложение, вмешиваться в его работу или нарушать его функционирование;</li><li>использовать приложение для хранения или распространения незаконного, вредоносного или оскорбительного контента;</li><li>обходить технические ограничения, ограничения подписки или механизмы безопасности.</li></ul>`],
+          ['billing', '6. Премиум-функции и оплата', `<p>Некоторые функции PrivoDiary могут предоставляться по подписке.</p><p>Если вы оформляете подписку через Google Play или другой магазин приложений, вопросы оплаты, продления, отмены, возврата средств и обработки платежей регулируются правилами соответствующей платформы.</p><p>Если иное не требуется законом, уже списанные суммы возврату не подлежат.</p>`],
+          ['availability', '7. Доступность и изменения', `<p>Мы можем изменить, приостановить или прекратить работу PrivoDiary полностью или частично в любой момент, если это разумно необходимо.</p><p>Мы также можем изменять или убирать функции, включая премиум-функции, при соблюдении требований применимого законодательства.</p>`],
+          ['liability', '8. Отказ от гарантий и ограничение ответственности', `<p>PrivoDiary предоставляется по принципу <strong>«как есть»</strong> и <strong>«по мере доступности»</strong> в максимальном объёме, допустимом законом.</p><p>В максимальной степени, разрешённой законом, мы отказываемся от любых гарантий, прямых или подразумеваемых, включая гарантии товарной пригодности, пригодности для определённой цели и отсутствия нарушений прав третьих лиц.</p><p>В максимальной степени, разрешённой законом, мы не несём ответственности за любые косвенные, случайные, специальные, последующие или штрафные убытки, включая потерю данных, контента, прибыли или доступа, возникшие в связи с использованием приложения или невозможностью его использования.</p>`],
+          ['termination', '9. Прекращение доступа', `<p>Мы можем приостановить или прекратить ваш доступ к PrivoDiary, если вы нарушаете настоящие условия, применимое законодательство или правила платформы.</p><p>Вы можете прекратить использование приложения в любой момент, просто перестав пользоваться им и удалив его.</p>`],
+          ['law', '10. Применимое право', `<p>Настоящие условия регулируются правом, применимым по месту нахождения разработчика, если только обязательные нормы защиты прав потребителей страны вашего проживания не предусматривают иное.</p>`],
+          ['changes', '11. Изменения настоящих условий', `<p>Мы можем время от времени обновлять эти условия. В таком случае мы обновим дату вступления документа в силу, указанную выше. Продолжение использования PrivoDiary после вступления обновлённых условий в силу означает согласие с новой редакцией, если применимое законодательство не требует иного порядка уведомления или согласия.</p>`],
+          ['contact', '12. Контакты', `<p>Если у вас есть вопросы по настоящим условиям, вы можете связаться с нами:</p><div class="contact-box"><strong>Yurii Gakhanov</strong><br>Email: <code class="inline">privodiary@gmail.com</code><br>Адрес: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code></div>`]
+        ],
+        footer: '© <span id="year"></span> PrivoDiary. Все права защищены.'
+      },
+      es: {
+        htmlLang: 'es',
+        title: 'PrivoDiary — Términos del Servicio',
+        description: 'Términos del Servicio de la aplicación móvil PrivoDiary.',
+        eyebrow: 'PrivoDiary · Información legal',
+        pageTitle: 'Términos del Servicio',
+        pageSubtitle: 'Estas condiciones regulan el acceso a la aplicación móvil PrivoDiary y su uso.',
+        pageMeta: 'Fecha de entrada en vigor: <strong>11 de marzo de 2026</strong><br>Última actualización: <strong>11 de marzo de 2026</strong><br>Nombre de la aplicación: <strong>PrivoDiary</strong><br>Desarrollador / Editor: <strong>Yurii Gakhanov</strong>',
+        langLabel: 'Idioma',
+        privacyLink: 'Política de Privacidad',
+        introNote: 'En resumen: PrivoDiary es un videodiario personal. Tú sigues siendo responsable de tu dispositivo, de tu cuenta y de cualquier contenido que exportes o compartas fuera de la aplicación.',
+        nav: [
+          ['privacy', '/', 'Privacidad'],
+          ['eligibility', '#eligibility', 'Legitimación'],
+          ['account', '#account', 'Cuenta'],
+          ['content', '#content', 'Contenido'],
+          ['acceptable', '#acceptable', 'Uso permitido'],
+          ['billing', '#billing', 'Premium'],
+          ['liability', '#liability', 'Responsabilidad'],
+          ['changes', '#changes', 'Cambios'],
+          ['contact', '#contact', 'Contacto']
+        ],
+        sections: [
+          ['eligibility', '1. Requisitos de uso', `<p>Solo puedes utilizar PrivoDiary si tienes capacidad legal para celebrar acuerdos vinculantes conforme a la legislación que te resulte aplicable.</p><p>Si utilizas la aplicación en nombre de otra persona o entidad, declaras que estás autorizado para hacerlo.</p>`],
+          ['account', '2. Tu cuenta', `<p>PrivoDiary puede requerir Google Sign-In para acceder a parte o a la totalidad de las funciones. Eres responsable de mantener el control sobre tu cuenta de Google, tu dispositivo y los métodos de autenticación utilizados para acceder a la aplicación.</p><p>Te comprometes a proporcionar información veraz y a no suplantar a otra persona o entidad.</p>`],
+          ['privacy', '3. Privacidad', `<p>El uso de PrivoDiary también se rige por nuestra <a href="/?lang=es">Política de Privacidad</a>. Te recomendamos leerla atentamente.</p>`],
+          ['content', '4. Contenido del usuario', `<p>Conservas la titularidad del contenido que creas en PrivoDiary, incluidos vídeos, notas, etiquetas y materiales relacionados.</p><p>Eres el único responsable de la legalidad, exactitud y consecuencias de crear, exportar, respaldar o compartir dicho contenido.</p><p>PrivoDiary no reclama la propiedad de tu contenido de diario.</p>`],
+          ['acceptable', '5. Uso permitido', `<p>Te comprometes a no:</p><ul><li>utilizar la aplicación infringiendo la legislación aplicable o los derechos de terceros;</li><li>intentar descompilarla, alterarla o interferir en su funcionamiento;</li><li>utilizar la aplicación para almacenar o distribuir contenido ilícito, malicioso o abusivo;</li><li>eludir limitaciones técnicas, restricciones de suscripción o mecanismos de seguridad.</li></ul>`],
+          ['billing', '6. Funciones premium y facturación', `<p>Algunas funciones de PrivoDiary pueden requerir una suscripción de pago.</p><p>Si te suscribes a través de Google Play u otra tienda de aplicaciones, la facturación, renovación, cancelación, reembolsos y procesamiento de pagos serán gestionados por la plataforma correspondiente conforme a sus propios términos.</p><p>Salvo que la ley disponga lo contrario, los importes ya cobrados no son reembolsables.</p>`],
+          ['availability', '7. Disponibilidad y cambios', `<p>Podemos modificar, suspender o interrumpir total o parcialmente PrivoDiary en cualquier momento cuando ello resulte razonablemente necesario.</p><p>También podremos cambiar o retirar funciones, incluidas las funciones premium, siempre dentro de los límites permitidos por la legislación aplicable.</p>`],
+          ['liability', '8. Exclusión de garantías y limitación de responsabilidad', `<p>PrivoDiary se ofrece <strong>“tal cual”</strong> y <strong>“según disponibilidad”</strong> en la máxima medida permitida por la ley.</p><p>En la medida máxima permitida por la legislación aplicable, rechazamos toda garantía, expresa o implícita, incluidas las garantías de comerciabilidad, idoneidad para un fin determinado y ausencia de infracción.</p><p>En la máxima medida permitida por la ley, no seremos responsables de daños indirectos, incidentales, especiales, consecuenciales o punitivos, incluyendo pérdida de datos, pérdida de contenido, pérdida de beneficios o pérdida de acceso derivada del uso o de la imposibilidad de usar la aplicación.</p>`],
+          ['termination', '9. Suspensión o terminación', `<p>Podemos suspender o cancelar tu acceso a PrivoDiary si incumples estos términos, la legislación aplicable o las políticas de la plataforma.</p><p>Puedes dejar de utilizar la aplicación en cualquier momento simplemente dejando de usarla y desinstalándola.</p>`],
+          ['law', '10. Ley aplicable', `<p>Estos términos se regirán por la legislación aplicable al lugar de establecimiento del desarrollador, salvo que las normas imperativas de protección al consumidor de tu país de residencia dispongan lo contrario.</p>`],
+          ['changes', '11. Cambios en estos términos', `<p>Podemos actualizar estos términos periódicamente. Cuando lo hagamos, actualizaremos la fecha de entrada en vigor indicada arriba. El uso continuado de PrivoDiary una vez que los términos actualizados entren en vigor constituirá aceptación de la nueva versión, salvo que la legislación aplicable exija otro procedimiento.</p>`],
+          ['contact', '12. Contacto', `<p>Si tienes preguntas sobre estas condiciones, puedes escribirnos aquí:</p><div class="contact-box"><strong>Yurii Gakhanov</strong><br>Email: <code class="inline">privodiary@gmail.com</code><br>Dirección: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code></div>`]
+        ],
+        footer: '© <span id="year"></span> PrivoDiary. Todos los derechos reservados.'
+      }
+    };
+
+    function detectLanguage() {
+      const params = new URLSearchParams(window.location.search);
+      const explicit = params.get('lang');
+      if (explicit && translations[explicit]) return explicit;
+      const saved = localStorage.getItem('privo_lang');
+      if (saved && translations[saved]) return saved;
+      const browser = (navigator.language || 'en').slice(0,2).toLowerCase();
+      return translations[browser] ? browser : 'en';
+    }
+    function withLang(url, lang) {
+      const absolute = new URL(url, window.location.origin);
+      absolute.searchParams.set('lang', lang);
+      if (window.location.pathname.includes('/terms/')) absolute.pathname = '/';
+      return absolute.pathname + absolute.search;
+    }
+    function render(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = t.htmlLang;
+      document.title = t.title;
+      document.querySelector('meta[name="description"]').setAttribute('content', t.description);
+      document.getElementById('eyebrow').textContent = t.eyebrow;
+      document.getElementById('pageTitle').textContent = t.pageTitle;
+      document.getElementById('pageSubtitle').textContent = t.pageSubtitle;
+      document.getElementById('pageMeta').innerHTML = t.pageMeta;
+      document.getElementById('langLabel').textContent = t.langLabel;
+      document.getElementById('privacyLinkTop').textContent = t.privacyLink;
+      document.getElementById('privacyLinkTop').href = withLang('/', lang);
+      document.getElementById('introNote').textContent = t.introNote;
+      document.getElementById('footerText').innerHTML = t.footer;
+      document.getElementById('year').textContent = new Date().getFullYear();
+      document.getElementById('navLinks').innerHTML = t.nav.map(([id, href, label]) => `<a href="${href.startsWith('#') ? href : withLang(href, lang)}" data-id="${id}">${label}</a>`).join('');
+      document.getElementById('content').innerHTML = t.sections.map(([id, title, html]) => `<section id="${id}" class="card"><h2>${title}</h2>${html}</section>`).join('');
+      document.getElementById('langSelect').value = lang;
+      localStorage.setItem('privo_lang', lang);
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState({}, '', url.pathname + url.search + url.hash);
+    }
+    const initialLang = detectLanguage();
+    document.getElementById('langSelect').addEventListener('change', (e) => render(e.target.value));
+    render(initialLang);
   </script>
 </body>
 </html>
