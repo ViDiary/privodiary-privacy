@@ -3,21 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrivoDiary Privacy Policy</title>
-  <meta name="description" content="Privacy Policy for PrivoDiary mobile application." />
+  <title>PrivoDiary — A softer way to notice your day</title>
+  <meta name="description" content="PrivoDiary helps you gently record real moments during the day and revisit them as a calm, private daily story." />
+  <meta property="og:title" content="PrivoDiary" />
+  <meta property="og:description" content="A private video diary for calm reflection and real moments." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/icon.png" />
+  <link rel="icon" href="assets/icon.png" />
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: rgba(18, 24, 44, 0.88);
-      --panel-2: rgba(25, 32, 58, 0.92);
-      --text: #edf1fb;
-      --muted: #aeb8d3;
-      --accent: #8ba4ff;
-      --accent-2: #c0ccff;
-      --line: rgba(255,255,255,0.09);
-      --soft: rgba(139,164,255,0.12);
-      --max: 980px;
-      --shadow: 0 16px 40px rgba(0,0,0,0.28);
+      --bg: #f6f2f8;
+      --panel: rgba(255,255,255,0.76);
+      --panel-strong: rgba(255,255,255,0.88);
+      --text: #241a2d;
+      --muted: #736785;
+      --line: rgba(122, 105, 147, 0.14);
+      --primary: #8570ad;
+      --primary-2: #b8a4d7;
+      --accent: #d8a66a;
+      --accent-2: #ead0ab;
+      --gold: #dcc79e;
+      --soft: rgba(133, 112, 173, 0.08);
+      --soft-accent: rgba(216, 166, 106, 0.14);
+      --max: 1180px;
+      --shadow: 0 18px 48px rgba(60, 45, 76, 0.08);
+      --shadow-soft: 0 10px 24px rgba(60, 45, 76, 0.05);
+      --radius: 28px;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -25,372 +36,610 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       color: var(--text);
-      line-height: 1.68;
+      line-height: 1.6;
       background:
-        radial-gradient(circle at top right, rgba(139,164,255,0.18), transparent 28%),
-        radial-gradient(circle at top left, rgba(88,111,201,0.12), transparent 22%),
-        linear-gradient(180deg, #070b16 0%, #0b1020 100%);
+        radial-gradient(circle at top left, rgba(234, 208, 171, 0.18), transparent 28%),
+        radial-gradient(circle at 85% 8%, rgba(184, 164, 215, 0.16), transparent 24%),
+        radial-gradient(circle at 50% 100%, rgba(255,255,255,0.35), transparent 28%),
+        linear-gradient(180deg, #fbf9fc 0%, #f3eef6 100%);
     }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
     .wrap { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
-    header {
-      padding: 48px 0 24px;
-      border-bottom: 1px solid var(--line);
-    }
     .topbar {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(139,164,255,0.25);
-      background: rgba(139,164,255,0.08);
-      color: var(--accent-2);
-      font-size: 14px;
-      margin-bottom: 18px;
-    }
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(34px, 6vw, 56px);
-      line-height: 1.04;
-      letter-spacing: -0.03em;
-    }
-    .subtitle {
-      margin: 0;
-      max-width: 760px;
-      font-size: 18px;
-      color: var(--muted);
-    }
-    .meta {
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .lang-box {
-      min-width: 190px;
-      padding: 12px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
-      backdrop-filter: blur(12px);
-    }
-    .lang-label {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    select {
-      width: 100%;
-      border: 1px solid rgba(139,164,255,0.22);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: #0f1529;
-      color: var(--text);
-      font: inherit;
-    }
-    .utility-links {
-      margin-top: 10px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .utility-links a {
-      color: var(--accent-2);
-      text-decoration: none;
-      font-size: 13px;
-    }
-    nav {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(11, 16, 32, 0.78);
-      border-bottom: 1px solid var(--line);
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: rgba(250,248,252,0.82);
+      border-bottom: 1px solid rgba(111,81,160,0.08);
     }
-    nav .wrap {
+    .topbar-inner {
       display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      padding: 12px 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
     }
-    nav a {
-      white-space: nowrap;
+    .brand { display:flex; align-items:center; gap:14px; text-decoration:none; }
+    .brand img { width: 44px; height: 44px; border-radius: 14px; box-shadow: 0 10px 22px rgba(255,140,26,0.20); }
+    .brand-name { font-size: 22px; font-weight: 800; letter-spacing: -0.03em; }
+    .brand-tag { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .nav { display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:flex-end; }
+    .nav a, .lang-switch button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.55);
+      border-radius: 999px;
+      padding: 10px 14px;
       text-decoration: none;
       color: var(--muted);
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      padding: 8px 12px;
-      border-radius: 999px;
       font-size: 14px;
+      cursor: pointer;
     }
-    nav a:hover, a:hover { color: var(--text); border-color: rgba(139,164,255,0.35); }
-    main { padding: 28px 0 64px; }
-    .note {
-      margin-bottom: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      border: 1px solid rgba(139,164,255,0.18);
-      background: rgba(139,164,255,0.07);
-      color: var(--accent-2);
+    .nav a:hover, .lang-switch button:hover, .lang-switch button.active { color: var(--text); border-color: rgba(130,88,205,0.26); background: #fff; }
+    .lang-switch { display:flex; gap:8px; }
+    header.hero { padding: 54px 0 46px; }
+    .hero-grid { display:grid; grid-template-columns: 1.05fr .95fr; gap: 34px; align-items:center; }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:10px; padding: 8px 14px;
+      border-radius: 999px; background: rgba(255,255,255,0.6); color: #806b4f; border:1px solid rgba(216,166,106,0.22);
+      font-size:14px; font-weight:600; margin-bottom: 18px;
     }
+    h1 { margin: 0 0 16px; font-size: clamp(42px, 7vw, 74px); line-height: 0.98; letter-spacing: -0.05em; }
+    .hero p { margin: 0 0 18px; font-size: 18px; color: var(--muted); max-width: 640px; }
+    .cta-row { display:flex; gap:14px; flex-wrap:wrap; margin-top: 28px; }
+    .btn {
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      min-height: 54px; padding: 0 22px; border-radius: 18px; border:1px solid transparent;
+      text-decoration:none; font-weight:700; box-shadow: var(--shadow);
+    }
+    .btn.primary { background: linear-gradient(135deg, #7f6b9f, #9785b4 58%, #baa9cf); color:#fff; box-shadow: 0 14px 28px rgba(133,112,173,0.18); }
+    .btn.secondary { background: rgba(255,255,255,0.82); border-color: var(--line); color: var(--text); box-shadow: var(--shadow-soft); }
+    .hero-note { margin-top:18px; font-size: 14px; color: var(--muted); }
+
+    .premium-chip {
+      letter-spacing: .01em;
+      display:inline-flex; align-items:center; gap:8px; margin-top: 14px; padding: 8px 14px;
+      border-radius: 999px; border:1px solid rgba(242,196,111,0.38);
+      background: linear-gradient(180deg, rgba(255,255,255,0.78), rgba(245,240,248,0.92));
+      color: #78688f; font-size: 13px; font-weight: 700; box-shadow: var(--shadow-soft);
+    }
+    .premium-chip::before { content: '◦'; color: var(--primary); font-size: 16px; }
+    .beta-callout {
+      margin-top: 22px; max-width: 640px; padding: 16px 18px; border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.84), rgba(243,238,246,0.82));
+      border:1px solid rgba(133,112,173,0.12); box-shadow: var(--shadow-soft); color: var(--text);
+    }
+    .beta-callout strong { display:block; margin-bottom: 4px; font-size: 15px; }
+    .beta-callout span { color: var(--muted); font-size: 14px; }
+
+    .hero-visual {
+      position: relative; min-height: 620px;
+    }
+    .phone-stack { position: relative; width: 100%; height: 100%; }
+    .phone {
+      position:absolute; border-radius: 34px; overflow:hidden; background: #e9dff4; border:1px solid rgba(111,81,160,0.12); box-shadow: var(--shadow);
+    }
+    .phone img { width:100%; height:100%; object-fit: cover; }
+    .phone.main { width: 50%; right: 3%; top: 2%; z-index: 2; transform: rotate(4deg); }
+    .phone.side { width: 38%; left: 2%; top: 16%; z-index: 1; transform: rotate(-8deg); }
+    .phone.bottom { width: 43%; left: 28%; bottom: 1%; z-index: 3; transform: rotate(-2deg); }
+    .floating-card {
+      position:absolute; left: 0; bottom: 18%; z-index:4; max-width: 260px;
+      border-radius: 22px; padding: 16px 18px; background: linear-gradient(180deg, rgba(255,255,255,0.86), rgba(244,239,248,0.84)); border:1px solid rgba(133,112,173,0.10); box-shadow: var(--shadow);
+    }
+    .floating-card strong { display:block; font-size:15px; margin-bottom:6px; }
+    .floating-card span { color: var(--muted); font-size:14px; }
+    section { padding: 28px 0; }
+    .section-head { margin-bottom: 22px; }
+    .section-head .label { font-size: 13px; text-transform: uppercase; letter-spacing: .12em; color: var(--primary); font-weight: 800; }
+    .section-head h2 { margin: 10px 0 10px; font-size: clamp(28px, 4vw, 48px); line-height: 1.02; letter-spacing: -0.04em; }
+    .section-head p { margin:0; color: var(--muted); max-width: 720px; font-size:17px; }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-2 { display:grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
     .card {
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 18px;
-      box-shadow: var(--shadow);
+      background: var(--panel); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px;
+      backdrop-filter: blur(12px);
     }
-    h2 {
-      margin: 0 0 14px;
-      font-size: 24px;
-      letter-spacing: -0.02em;
+    .icon-badge {
+      width: 50px; height: 50px; border-radius: 16px; display:grid; place-items:center; margin-bottom: 18px;
+      background: var(--soft); color: var(--primary); font-size: 22px;
     }
-    p, li { color: var(--text); }
-    ul { padding-left: 22px; }
-    strong { color: #fff; }
-    .muted { color: var(--muted); }
-    .contact-box {
-      margin-top: 12px;
-      padding: 16px 18px;
-      border: 1px dashed rgba(139,164,255,0.34);
-      border-radius: 16px;
-      background: rgba(139,164,255,0.06);
+    .card h3 { margin: 0 0 8px; font-size: 22px; letter-spacing: -0.03em; }
+    .card p { margin:0; color: var(--muted); }
+    .steps .step-num { font-size: 13px; color: var(--primary); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+    .showcase { display:grid; grid-template-columns: .92fr 1.08fr; gap: 18px; }
+    .showcase-copy ul { padding-left: 20px; margin: 12px 0 0; color: var(--muted); }
+    .showcase-copy li { margin-bottom: 8px; }
+    .screens-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .screen-card { background: var(--panel-strong); border:1px solid var(--line); border-radius: 30px; overflow:hidden; box-shadow: var(--shadow); }
+    .screen-card img { width:100%; aspect-ratio: 9/16; object-fit: cover; object-position: top; }
+    .screen-card .caption { padding: 14px 16px 16px; color: var(--muted); font-size: 14px; }
+    .quote {
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:stretch;
     }
-    code.inline {
-      background: rgba(255,255,255,0.08);
-      padding: 2px 6px;
-      border-radius: 6px;
-      color: #e8edff;
+    .quote .card { display:flex; flex-direction:column; justify-content:space-between; }
+    .quote blockquote { font-size: clamp(22px, 3vw, 34px); line-height: 1.14; letter-spacing: -0.04em; margin:0 0 16px; }
+    .pills { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .pill { padding: 10px 14px; border-radius:999px; background: rgba(255,255,255,0.7); border:1px solid var(--line); color: var(--muted); font-size:14px; }
+    .pricing { display:grid; grid-template-columns: repeat(2, 1fr); gap:18px; }
+    .pricing .plan { padding: 26px; border-radius: 30px; background: var(--panel); border:1px solid var(--line); box-shadow: var(--shadow); }
+    .plan.featured { background: linear-gradient(180deg, rgba(133,112,173,0.10), rgba(255,255,255,0.94) 58%, rgba(245,240,248,0.96)); border-color: rgba(133,112,173,0.16); }
+    .plan .tag { display:inline-block; padding: 7px 12px; border-radius:999px; font-size:13px; font-weight:700; margin-bottom:14px; }
+    .plan.basic .tag { background: rgba(255,255,255,0.8); color: var(--muted); border:1px solid var(--line); }
+    .plan.featured .tag { background: rgba(130,88,205,0.14); color: var(--primary); border:1px solid rgba(130,88,205,0.18); }
+    .price { font-size: 42px; line-height: 1; letter-spacing: -0.05em; margin: 0 0 6px; }
+    .plan p { color: var(--muted); margin-top: 0; }
+    .plan ul { padding-left: 20px; color: var(--muted); }
+    .plan li { margin-bottom: 8px; }
+    .faq .item { padding: 18px 0; border-top: 1px solid var(--line); }
+    .faq .item:first-child { border-top: none; }
+    .faq h3 { margin:0 0 8px; font-size:18px; }
+    .faq p { margin:0; color: var(--muted); }
+    .final-card {
+      padding: 34px; border-radius: 34px; background:
+        radial-gradient(circle at top right, rgba(234,208,171,0.16), transparent 32%),
+        radial-gradient(circle at bottom left, rgba(184,164,215,0.12), transparent 26%),
+        linear-gradient(180deg, rgba(255,255,255,0.90), rgba(244,239,248,0.86));
+      border:1px solid rgba(133,112,173,0.12); box-shadow: var(--shadow);
+      display:grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items:center;
     }
-    footer {
-      padding: 20px 0 48px;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
+    .mini-links { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .mini-links a { text-decoration:none; color: var(--muted); padding:10px 14px; border-radius:999px; border:1px solid var(--line); background: rgba(255,255,255,0.7); }
+    footer { padding: 28px 0 54px; color: var(--muted); }
+    footer .foot { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; border-top:1px solid var(--line); padding-top:20px; }
+    @media (max-width: 1040px) {
+      .hero-grid, .showcase, .quote, .final-card { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 560px; }
+      .phone.main { width: 52%; }
     }
-    @media (max-width: 720px) {
-      .topbar { flex-direction: column; }
-      .lang-box { width: 100%; }
-      .card { padding: 22px; border-radius: 20px; }
-      .subtitle { font-size: 16px; }
+    @media (max-width: 860px) {
+      .grid-3, .grid-2, .pricing, .screens-grid { grid-template-columns: 1fr; }
+      .topbar-inner { flex-direction: column; align-items: stretch; }
+      .nav { justify-content: space-between; }
+      .hero-visual { min-height: 520px; }
+      .phone.main { width: 58%; }
+      .phone.side { width: 44%; }
+      .phone.bottom { width: 48%; }
+    }
+    @media (max-width: 620px) {
+      .nav { gap:8px; }
+      .nav-links { display:none; }
+      h1 { font-size: 42px; }
+      .hero p { font-size: 16px; }
+      .cta-row { flex-direction: column; }
+      .btn { width: 100%; }
+      .hero-visual { min-height: 430px; }
+      .phone.main { width: 58%; right: 0; }
+      .phone.side { width: 46%; left: 0; top: 18%; }
+      .phone.bottom { width: 50%; left: 25%; bottom: 0; }
+      .floating-card { max-width: 210px; padding: 14px; font-size: 13px; }
+      .card, .plan, .final-card { padding: 22px; border-radius: 24px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="topbar">
+  <div class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">
+        <img src="assets/icon.png" alt="PrivoDiary icon">
         <div>
-          <div class="eyebrow" id="eyebrow"></div>
-          <h1 id="pageTitle"></h1>
-          <p class="subtitle" id="pageSubtitle"></p>
-          <div class="meta" id="pageMeta"></div>
+          <div class="brand-name">PrivoDiary</div>
+          <div class="brand-tag" data-i18n="brandTag"></div>
         </div>
-        <div class="lang-box">
-          <label class="lang-label" id="langLabel" for="langSelect"></label>
-          <select id="langSelect" aria-label="Language selector">
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="ru">Русский</option>
-          </select>
-          <div class="utility-links">
-            <a href="/terms/" id="termsLinkTop"></a>
+      </a>
+      <div class="nav">
+        <div class="nav-links" style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a href="#how" data-i18n="navHow"></a>
+          <a href="#why" data-i18n="navWhy"></a>
+          <a href="#premium" data-i18n="navPremium"></a>
+          <a href="#faq" data-i18n="navFaq"></a>
+        </div>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button data-lang="en">EN</button>
+          <button data-lang="es">ES</button>
+          <button data-lang="ru">RU</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero wrap" id="top">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow" data-i18n="heroEyebrow"></div>
+        <h1 data-i18n="heroTitle"></h1>
+        <p data-i18n="heroText"></p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:support@privodiary.com?subject=PrivoDiary%20closed%20testing" data-i18n="ctaPrimary"></a>
+          <a class="btn secondary" href="/privacy/" id="privacyButton" data-i18n="ctaSecondary"></a>
+        </div>
+        <div class="premium-chip" data-i18n="premiumChip"></div>
+        <div class="beta-callout"><strong data-i18n="betaTitle"></strong><span data-i18n="betaText"></span></div>
+        <div class="hero-note" data-i18n="heroNote"></div>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-stack">
+          <div class="phone side"><img src="assets/records.jpg" alt="Records screen"></div>
+          <div class="phone main"><img src="assets/recording.jpg" alt="Recording screen"></div>
+          <div class="phone bottom"><img src="assets/note.jpg" alt="Text note screen"></div>
+          <div class="floating-card">
+            <strong data-i18n="floatingTitle"></strong>
+            <span data-i18n="floatingText"></span>
           </div>
         </div>
       </div>
     </div>
   </header>
-  <nav>
-    <div class="wrap" id="navLinks"></div>
-  </nav>
-  <main class="wrap">
-    <div class="note" id="introNote"></div>
-    <div id="content"></div>
-  </main>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="label" data-i18n="howLabel"></div>
+        <h2 data-i18n="howTitle"></h2>
+        <p data-i18n="howText"></p>
+      </div>
+      <div class="grid-3 steps">
+        <div class="card">
+          <div class="step-num" data-i18n="step1Num"></div>
+          <div class="icon-badge">⏰</div>
+          <h3 data-i18n="step1Title"></h3>
+          <p data-i18n="step1Text"></p>
+        </div>
+        <div class="card">
+          <div class="step-num" data-i18n="step2Num"></div>
+          <div class="icon-badge">🎥</div>
+          <h3 data-i18n="step2Title"></h3>
+          <p data-i18n="step2Text"></p>
+        </div>
+        <div class="card">
+          <div class="step-num" data-i18n="step3Num"></div>
+          <div class="icon-badge">🧭</div>
+          <h3 data-i18n="step3Title"></h3>
+          <p data-i18n="step3Text"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap showcase">
+      <div class="card showcase-copy">
+        <div class="section-head" style="margin-bottom:14px;">
+          <div class="label" data-i18n="whyLabel"></div>
+          <h2 data-i18n="whyTitle"></h2>
+          <p data-i18n="whyText"></p>
+        </div>
+        <ul>
+          <li data-i18n="why1"></li>
+          <li data-i18n="why2"></li>
+          <li data-i18n="why3"></li>
+          <li data-i18n="why4"></li>
+        </ul>
+      </div>
+      <div class="screens-grid">
+        <div class="screen-card">
+          <img src="assets/settings.jpg" alt="Settings screen">
+          <div class="caption" data-i18n="screen1"></div>
+        </div>
+        <div class="screen-card">
+          <img src="assets/about.jpg" alt="About screen">
+          <div class="caption" data-i18n="screen2"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap quote">
+      <div class="card">
+        <blockquote data-i18n="quote"></blockquote>
+        <div class="pills">
+          <span class="pill" data-i18n="aud1"></span>
+          <span class="pill" data-i18n="aud2"></span>
+          <span class="pill" data-i18n="aud3"></span>
+          <span class="pill" data-i18n="aud4"></span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-head" style="margin-bottom: 10px;">
+          <div class="label" data-i18n="forWhoLabel"></div>
+          <h2 data-i18n="forWhoTitle"></h2>
+        </div>
+        <p data-i18n="forWhoText"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="premium">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="label" data-i18n="premiumLabel"></div>
+        <h2 data-i18n="premiumTitle"></h2>
+        <p data-i18n="premiumText"></p>
+      </div>
+      <div class="pricing">
+        <div class="plan basic">
+          <div class="tag" data-i18n="planBasicTag"></div>
+          <div class="price" data-i18n="planBasicPrice"></div>
+          <p data-i18n="planBasicText"></p>
+          <ul>
+            <li data-i18n="basic1"></li>
+            <li data-i18n="basic2"></li>
+            <li data-i18n="basic3"></li>
+            <li data-i18n="basic4"></li>
+          </ul>
+        </div>
+        <div class="plan featured">
+          <div class="tag" data-i18n="planPremiumTag"></div>
+          <div class="price" data-i18n="planPremiumPrice"></div>
+          <p data-i18n="planPremiumText"></p>
+          <ul>
+            <li data-i18n="premium1"></li>
+            <li data-i18n="premium2"></li>
+            <li data-i18n="premium3"></li>
+            <li data-i18n="premium4"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap card faq">
+      <div class="section-head" style="margin-bottom: 8px;">
+        <div class="label" data-i18n="faqLabel"></div>
+        <h2 data-i18n="faqTitle"></h2>
+      </div>
+      <div class="item"><h3 data-i18n="faq1q"></h3><p data-i18n="faq1a"></p></div>
+      <div class="item"><h3 data-i18n="faq2q"></h3><p data-i18n="faq2a"></p></div>
+      <div class="item"><h3 data-i18n="faq3q"></h3><p data-i18n="faq3a"></p></div>
+      <div class="item"><h3 data-i18n="faq4q"></h3><p data-i18n="faq4a"></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap final-card">
+      <div>
+        <div class="section-head" style="margin-bottom: 12px;">
+          <div class="label" data-i18n="finalLabel"></div>
+          <h2 data-i18n="finalTitle"></h2>
+          <p data-i18n="finalText"></p>
+        </div>
+        <div class="cta-row" style="margin-top: 18px;">
+          <a class="btn primary" href="mailto:support@privodiary.com?subject=PrivoDiary%20closed%20testing" data-i18n="finalCta"></a>
+        </div>
+        <div class="mini-links">
+          <a href="/privacy/" id="privacyLinkFooter" data-i18n="linkPrivacy"></a>
+          <a href="/terms/" id="termsLinkFooter" data-i18n="linkTerms"></a>
+        </div>
+      </div>
+      <div class="card" style="background: rgba(255,255,255,0.7); box-shadow:none;">
+        <h3 style="margin-top:0; font-size: 22px;" data-i18n="contactTitle"></h3>
+        <p data-i18n="contactText"></p>
+        <p style="margin:16px 0 0;"><a style="font-weight:700; text-decoration:none;" href="mailto:support@privodiary.com">support@privodiary.com</a></p>
+      </div>
+    </div>
+  </section>
+
   <footer>
-    <div class="wrap" id="footerText"></div>
+    <div class="wrap foot">
+      <div>© <span id="year"></span> PrivoDiary</div>
+      <div data-i18n="footerText"></div>
+    </div>
   </footer>
+
   <script>
-    const translations = {
+    const copy = {
       en: {
-        htmlLang: 'en',
-        title: 'PrivoDiary Privacy Policy',
-        description: 'Privacy Policy for PrivoDiary mobile application.',
-        eyebrow: 'PrivoDiary · Legal',
-        pageTitle: 'Privacy Policy',
-        pageSubtitle: 'This Privacy Policy explains how PrivoDiary handles information when you use the mobile application.',
-        pageMeta: 'Effective date: <strong>08 March 2026</strong><br>App name: <strong>PrivoDiary</strong><br>Developer / Publisher: <strong>Yurii Gakhanov</strong>',
-        langLabel: 'Language',
-        termsLink: 'Terms of Service',
-        introNote: 'Short version: diary content stays on your device. PrivoDiary uses Google Sign-In and may process limited account-related data only to provide access to the app and premium features.',
-        nav: [
-          ['terms', '/terms/', 'Terms'],
-          ['overview', '#overview', 'Overview'],
-          ['collect', '#collect', 'Data'],
-          ['use', '#use', 'Use'],
-          ['sharing', '#sharing', 'Sharing'],
-          ['storage', '#storage', 'Storage'],
-          ['rights', '#rights', 'Your rights'],
-          ['children', '#children', 'Children'],
-          ['changes', '#changes', 'Changes'],
-          ['contact', '#contact', 'Contact']
-        ],
-        sections: [
-          ['overview', '1. Overview', `<p>PrivoDiary is a personal diary application that prompts users to create short entries during the day.</p><p>The app is designed primarily to operate locally on the user’s device. diary content is not uploaded to external servers as part of the app’s core functionality unless the user deliberately exports or shares it by using third-party tools or services.</p><p>PrivoDiary uses <strong>Google Sign-In</strong> and may process limited account-related data that is necessary to authenticate the user, determine access to premium features, and keep the app working as intended.</p>`],
-          ['collect', '2. Data we collect', `<p>Depending on the features you use, PrivoDiary may process the following categories of data:</p><ul><li><strong>Account information</strong> — such as your email address, Google account identifier, display name, and other basic profile data provided through Google Sign-In.</li><li><strong>User-created content</strong> — such as diary entries, optional notes, tags, timestamps, and related metadata stored locally on your device.</li><li><strong>Device permissions</strong> — such as camera, microphone, notifications, and media access, used only to enable the app’s functions on your device.</li><li><strong>Subscription or access status</strong> — information necessary to determine whether premium features are available to your account.</li></ul><p class="muted">PrivoDiary does not upload or remotely store user diary content as part of its core functionality.</p>`],
-          ['use', '3. How data is used', `<ul><li>To authenticate users through Google Sign-In.</li><li>To provide access to the application and premium features, where applicable.</li><li>To let you record, save, organise, review, and export diary entries on your device.</li><li>To send local reminders or notifications that you enable.</li><li>To compile recorded clips into daily summary videos on your device.</li><li>To comply with legal obligations, where required.</li></ul>`],
-          ['sharing', '4. Data sharing and disclosure', `<p>PrivoDiary does <strong>not sell</strong> user personal data.</p><p>User-created diary content remains stored locally on the device and is not shared by PrivoDiary with third parties as part of the app’s core functionality.</p><p>Certain limited account-related data may be processed by third parties where necessary to support sign-in, app distribution, subscription management, or payment processing, including Google and app store platforms, under their own privacy policies and terms.</p><p>If you choose to export, transfer, back up, or share your content by using third-party apps, cloud services, social networks, file managers, or device tools, those actions are performed at <strong>your own discretion and responsibility</strong>.</p>`],
-          ['storage', '5. Data storage, retention, and security', `<p>diary content is stored locally on your device. PrivoDiary does not maintain external storage of your diary content as part of its core functionality.</p><p>Limited account-related information associated with Google Sign-In or subscription status may be processed to provide access to the app and its premium functions.</p><p>We implement reasonable technical and organisational measures designed to protect personal information. However, no method of storage, transmission, or security system can be guaranteed to be completely secure. Therefore, absolute security cannot be assured.</p><ul><li><strong>Local storage</strong> — diary videos and related content are stored on your device.</li><li><strong>Retention</strong> — locally stored content remains on your device until you delete it, uninstall the app, or otherwise remove it.</li></ul><p>You are responsible for protecting access to your device, your Google account, exported files, backups, and any third-party services you use.</p>`],
-          ['permissions', '6. Permissions', `<p>Depending on your device and the features you enable, PrivoDiary may request:</p><ul><li><strong>Camera</strong> — to record diary videos.</li><li><strong>Microphone</strong> — to capture audio together with video recordings.</li><li><strong>Notifications</strong> — to send recording reminders.</li><li><strong>Photos / Media / Files</strong> — to save, read, export, and compile video content where required.</li></ul><p>You can manage permissions through your device settings. Disabling certain permissions may limit the app’s functionality.</p>`],
-          ['transfers', '7. International data transfers', `<p>PrivoDiary does not transfer user-created diary content to external servers as part of its core functionality.</p><p>Where limited account-related data is processed by third-party providers such as Google, such processing may involve international data transfers in accordance with those providers’ legal safeguards and policies.</p>`],
-          ['rights', '8. Your rights and choices', `<p>Depending on your location, you may have rights to:</p><ul><li>Access personal data processed in connection with your account.</li><li>Request correction of inaccurate account data.</li><li>Request deletion of personal data where applicable.</li><li>Delete locally stored diary content directly from the app or your device.</li><li>Withdraw consent where processing is based on consent.</li><li>Stop using the app at any time.</li></ul>`],
-          ['children', '9. Children’s privacy', `<p>PrivoDiary is not intended for children under the age required by applicable law in their jurisdiction unless specifically stated otherwise.</p><p>The app does not knowingly collect personal data from children in violation of applicable law.</p>`],
-          ['third-party', '10. Third-party services', `<p>PrivoDiary may rely on third-party services where necessary to support app functionality, including <strong>Google Sign-In</strong>, <strong>Google Play</strong>, and <strong>Google Play Billing</strong>.</p><p>Such third-party services may process personal data in accordance with their own terms and privacy policies.</p>`],
-          ['changes', '11. Changes to this Privacy Policy', `<p>We may update this Privacy Policy from time to time. When we do, we will revise the effective date shown at the top of this page. Material changes may also be communicated through the app or by other appropriate means.</p>`],
-          ['contact', '12. Contact us', `<p>If you have questions, requests, or concerns about this Privacy Policy or the app’s privacy practices, contact us here:</p><div class="contact-box"><strong>Yurii Gakhanov</strong><br>Email: <code class="inline">support@privodiary.com</code><br>Address: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code></div>`]
-        ],
-        footer: '© <span id="year"></span> PrivoDiary. All rights reserved.'
-      },
-      ru: {
-        htmlLang: 'ru',
-        title: 'PrivoDiary — Политика конфиденциальности',
-        description: 'Политика конфиденциальности мобильного приложения PrivoDiary.',
-        eyebrow: 'PrivoDiary · Правовая информация',
-        pageTitle: 'Политика конфиденциальности',
-        pageSubtitle: 'В этом документе объясняется, как PrivoDiary обрабатывает информацию при использовании мобильного приложения.',
-        pageMeta: 'Дата вступления в силу: <strong>08 марта 2026 г.</strong><br>Название приложения: <strong>PrivoDiary</strong><br>Разработчик / издатель: <strong>Yurii Gakhanov</strong>',
-        langLabel: 'Язык',
-        termsLink: 'Пользовательское соглашение',
-        introNote: 'Коротко: дневник хранится на вашем устройстве. PrivoDiary использует Google Sign-In и обрабатывает только ограниченные данные аккаунта, необходимые для входа в приложение и работы премиум-функций.',
-        nav: [
-          ['terms', '/terms/', 'Условия'],
-          ['overview', '#overview', 'Обзор'],
-          ['collect', '#collect', 'Данные'],
-          ['use', '#use', 'Использование'],
-          ['sharing', '#sharing', 'Передача'],
-          ['storage', '#storage', 'Хранение'],
-          ['rights', '#rights', 'Ваши права'],
-          ['children', '#children', 'Дети'],
-          ['changes', '#changes', 'Изменения'],
-          ['contact', '#contact', 'Контакты']
-        ],
-        sections: [
-          ['overview', '1. Общие положения', `<p>PrivoDiary — это приложение дневника, которое несколько раз в день предлагает пользователю делать короткие личные записи.</p><p>Приложение в первую очередь работает <strong>локально на устройстве пользователя</strong>. Пользовательский видеоконтент не загружается на внешние серверы как часть основного функционала приложения, если только сам пользователь не экспортирует или не отправляет его с помощью сторонних сервисов.</p><p>PrivoDiary использует <strong>Google Sign-In</strong> и может обрабатывать ограниченные данные, связанные с аккаунтом, если это необходимо для аутентификации, предоставления доступа к премиум-функциям и корректной работы приложения.</p>`],
-          ['collect', '2. Какие данные могут обрабатываться', `<p>В зависимости от того, какими функциями вы пользуетесь, PrivoDiary может обрабатывать следующие категории данных:</p><ul><li><strong>Данные аккаунта</strong> — например, адрес электронной почты, идентификатор Google-аккаунта, имя профиля и иные базовые сведения, передаваемые через Google Sign-In.</li><li><strong>Пользовательский контент</strong> — видеозаписи дневника, необязательные текстовые заметки, теги, отметки времени и связанная с ними метаинформация, которая хранится локально на вашем устройстве.</li><li><strong>Разрешения устройства</strong> — доступ к камере, микрофону, уведомлениям и медиатеке, используемый только для работы функций приложения на вашем устройстве.</li><li><strong>Статус подписки или доступа</strong> — сведения, необходимые для определения того, доступны ли вашему аккаунту премиум-функции.</li></ul><p class="muted">PrivoDiary не загружает и не хранит пользовательский видеоконтент на удалённых серверах в рамках своего основного функционала.</p>`],
-          ['use', '3. Для чего используются данные', `<ul><li>Для аутентификации пользователей через Google Sign-In.</li><li>Для предоставления доступа к приложению и премиум-функциям, если они оформлены.</li><li>Для записи, сохранения, организации, просмотра и экспорта дневниковых записей на вашем устройстве.</li><li>Для отправки локальных напоминаний и уведомлений, которые вы включили.</li><li>Для сборки ежедневных видеосводок из сохранённых роликов непосредственно на вашем устройстве.</li><li>Для соблюдения требований законодательства, когда это необходимо.</li></ul>`],
-          ['sharing', '4. Передача и раскрытие данных', `<p>PrivoDiary <strong>не продаёт</strong> персональные данные пользователей.</p><p>Пользовательский видеоконтент остаётся на устройстве и не передаётся PrivoDiary третьим лицам как часть основного функционала приложения.</p><p>Определённые ограниченные данные аккаунта могут обрабатываться третьими лицами, если это необходимо для входа в приложение, распространения приложения, управления подпиской или обработки платежей, включая Google и магазины приложений. Такая обработка регулируется их собственными документами и правилами.</p><p>Если вы самостоятельно экспортируете, резервируете, переносите или публикуете свой контент с помощью сторонних приложений, облачных сервисов, социальных сетей, файловых менеджеров или инструментов устройства, такие действия совершаются <strong>по вашему усмотрению и под вашу ответственность</strong>.</p>`],
-          ['storage', '5. Хранение, срок хранения и безопасность', `<p>Видеоконтент дневника хранится локально на вашем устройстве. PrivoDiary не поддерживает внешнее хранение этого контента как часть основного функционала приложения.</p><p>Ограниченные сведения, связанные с Google Sign-In или статусом подписки, могут обрабатываться в объёме, необходимом для доступа к приложению и его премиум-функциям.</p><p>Мы принимаем разумные технические и организационные меры, направленные на защиту персональной информации. Однако ни один способ хранения, передачи данных или система защиты не могут гарантировать абсолютную безопасность. Поэтому абсолютная безопасность не гарантируется.</p><ul><li><strong>Локальное хранение</strong> — видеозаписи и связанный контент хранятся на вашем устройстве.</li><li><strong>Срок хранения</strong> — локально сохранённый контент остаётся на устройстве до тех пор, пока вы не удалите его, не удалите приложение или не уберёте данные иным способом.</li></ul><p>Вы самостоятельно отвечаете за защиту доступа к вашему устройству, вашему Google-аккаунту, экспортированным файлам, резервным копиям и выбранным вами сторонним сервисам.</p>`],
-          ['permissions', '6. Разрешения', `<p>В зависимости от устройства и включённых функций PrivoDiary может запрашивать:</p><ul><li><strong>Камеру</strong> — для записи дневника.</li><li><strong>Микрофон</strong> — для записи звука вместе с видео.</li><li><strong>Уведомления</strong> — для напоминаний о записи моментов.</li><li><strong>Фото / медиа / файлы</strong> — для сохранения, чтения, экспорта и сборки видеоконтента.</li></ul><p>Управлять разрешениями можно через настройки устройства. Отключение отдельных разрешений может ограничить работу приложения.</p>`],
-          ['transfers', '7. Международная передача данных', `<p>PrivoDiary не передаёт пользовательский видеоконтент на внешние серверы в рамках своего основного функционала.</p><p>Если ограниченные данные аккаунта обрабатываются сторонними провайдерами, такими как Google, такая обработка может включать международную передачу данных в соответствии с их политиками и применимыми правовыми гарантиями.</p>`],
-          ['rights', '8. Ваши права и выбор', `<p>В зависимости от вашей юрисдикции у вас могут быть следующие права:</p><ul><li>получить доступ к данным, которые обрабатываются в связи с вашим аккаунтом;</li><li>требовать исправления неточных данных аккаунта;</li><li>требовать удаления персональных данных, если это применимо;</li><li>удалять локально сохранённый контент прямо в приложении или на устройстве;</li><li>отозвать согласие, если обработка основана на согласии;</li><li>прекратить использование приложения в любой момент.</li></ul>`],
-          ['children', '9. Конфиденциальность детей', `<p>PrivoDiary не предназначено для детей младше возраста, установленного применимым законодательством их юрисдикции, если прямо не указано иное.</p><p>Приложение не собирает осознанно персональные данные детей с нарушением применимого законодательства.</p>`],
-          ['third-party', '10. Сторонние сервисы', `<p>PrivoDiary может использовать сторонние сервисы, если это необходимо для работы приложения, включая <strong>Google Sign-In</strong>, <strong>Google Play</strong> и <strong>Google Play Billing</strong>.</p><p>Такие сервисы могут обрабатывать персональные данные в соответствии со своими собственными условиями и политиками конфиденциальности.</p>`],
-          ['changes', '11. Изменения этой Политики конфиденциальности', `<p>Мы можем время от времени обновлять эту Политику конфиденциальности. Когда это происходит, мы изменяем дату вступления документа в силу в верхней части страницы. О существенных изменениях также может сообщаться через приложение или иным уместным способом.</p>`],
-          ['contact', '12. Как с нами связаться', `<p>Если у вас есть вопросы, запросы или замечания по поводу этой Политики конфиденциальности или практики обработки данных в приложении, вы можете связаться с нами:</p><div class="contact-box"><strong>Yurii Gakhanov</strong><br>Email: <code class="inline">support@privodiary.com</code><br>Адрес: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code></div>`]
-        ],
-        footer: '© <span id="year"></span> PrivoDiary. Все права защищены.'
+        brandTag: 'A quiet place to notice your day',
+        navHow: 'How it works', navWhy: 'Why it matters', navPremium: 'Premium', navFaq: 'FAQ',
+        heroEyebrow: 'A gentler way to be with yourself',
+        heroTitle: 'A softer way to notice your day.',
+        heroText: 'PrivoDiary helps you pause for a few seconds during the day, record what is real, and return to it later with more calm, clarity, and kindness toward yourself.',
+        ctaPrimary: 'Request closed testing access',
+        ctaSecondary: 'Read Privacy Policy',
+        premiumChip: 'Quiet, private, and made for reflection',
+        betaTitle: 'Closed testing access',
+        betaText: 'To join the closed test, send an email to support@privodiary.com and ask for access.',
+        heroNote: 'No social feed. No pressure to perform. Just a private space to notice what your day really felt like.',
+        floatingTitle: 'A few honest seconds are enough',
+        floatingText: 'Small moments, gently kept, can tell the truth more clearly than memory alone.',
+        howLabel: 'How it works',
+        howTitle: 'Simple enough to return to. Gentle enough to keep.',
+        howText: 'The flow stays short and quiet, so the habit can support your day instead of interrupting it.',
+        step1Num: 'Step 01', step2Num: 'Step 02', step3Num: 'Step 03',
+        step1Title: 'Get a reminder',
+        step1Text: 'A soft reminder invites you to pause for a moment and notice where you are and what is happening right now.',
+        step2Title: 'Keep one small moment',
+        step2Text: 'Capture a short video clip or write a quick note with mood and tags. It does not need to be polished. It only needs to be true.',
+        step3Title: 'Return to the day with clarity',
+        step3Text: 'At the end of the day your entries come together in one private summary you can revisit, keep, or export.',
+        whyLabel: 'Why it matters',
+        whyTitle: 'A day can disappear when nothing gently holds it.',
+        whyText: 'Memory changes things. Stress blurs them. Routine makes whole days feel invisible. PrivoDiary leaves a calmer, kinder trace you can return to later.',
+        why1: 'A clearer feeling for how your days are really lived.',
+        why2: 'A private place for ordinary, difficult, or meaningful moments.',
+        why3: 'A simple rhythm for reflection, journaling, and self-understanding.',
+        why4: 'An honest archive that supports calm rather than performance.',
+        screen1: 'Control how reminders, note types, tags, and premium features work.',
+        screen2: 'Keep the product calm and understandable — no clutter, no noise.',
+        quote: '“You do not need to fix yourself first. You only need a calmer way to notice your life.”',
+        aud1: 'Self-reflection', aud2: 'Therapy support', aud3: 'Transitions', aud4: 'Memory keeping',
+        forWhoLabel: 'Who it is for',
+        forWhoTitle: 'Made for people who want a calmer relationship with their own days.',
+        forWhoText: 'PrivoDiary fits reflective users, people in therapy, anyone moving through change, creators collecting raw daily moments, and those who want a quieter way to understand how life is actually unfolding.',
+        premiumLabel: 'Premium',
+        premiumTitle: 'The core experience stays gentle. Premium adds room to shape it.',
+        premiumText: 'The core habit remains simple and accessible. Premium is for people who want more flexible routines, cleaner exports, and a longer archive.',
+        planBasicTag: 'Basic', planBasicPrice: 'Free', planBasicText: 'Enough to build the habit.',
+        basic1: 'Video and text entries', basic2: 'Daily reminders', basic3: 'Daily summary', basic4: 'Basic archive and privacy links',
+        planPremiumTag: 'Premium', planPremiumPrice: 'Extended', planPremiumText: 'More control for long-term use.',
+        premium1: 'Advanced schedule settings', premium2: 'Watermark and timecode options', premium3: 'Longer archive access', premium4: 'Extra summary and export controls',
+        faqLabel: 'FAQ', faqTitle: 'Simple answers, kept calm',
+        faq1q: 'Is this a public social app?', faq1a: 'No. PrivoDiary is designed as a private diary. Sharing is optional and under the user’s control.',
+        faq2q: 'Can I use text instead of video?', faq2a: 'Yes. Quick text notes are supported for moments when recording video is not convenient.',
+        faq3q: 'Who is this useful for?', faq3a: 'People interested in self-awareness, journaling, daily reflection, memory keeping, and life transitions.',
+        faq4q: 'Where can I read the legal pages?', faq4a: 'The Privacy Policy and Terms are available on this site in English, Russian, and Spanish.',
+        finalLabel: 'Begin softly',
+        finalTitle: 'Begin with one small moment, and let understanding grow from there.',
+        finalText: 'When a day leaves no trace, it often feels like it never really happened. PrivoDiary helps you keep a small, honest record before the day fades. To join the closed testing phase, send an email to support@privodiary.com.',
+        finalCta: 'Request access by email',
+        linkPrivacy: 'Privacy Policy', linkTerms: 'Terms of Service',
+        contactTitle: 'Need access or have a question?',
+        contactText: 'For closed testing access, questions about the product, or a quiet conversation about collaboration, write to support@privodiary.com.',
+        footerText: 'Quiet, private, and made for real life.'
       },
       es: {
-        htmlLang: 'es',
-        title: 'PrivoDiary — Política de Privacidad',
-        description: 'Política de Privacidad de la aplicación móvil PrivoDiary.',
-        eyebrow: 'PrivoDiary · Información legal',
-        pageTitle: 'Política de Privacidad',
-        pageSubtitle: 'Este documento explica cómo PrivoDiary trata la información cuando utilizas la aplicación móvil.',
-        pageMeta: 'Fecha de entrada en vigor: <strong>08 de marzo de 2026</strong><br>Nombre de la aplicación: <strong>PrivoDiary</strong><br>Desarrollador / Editor: <strong>Yurii Gakhanov</strong>',
-        langLabel: 'Idioma',
-        termsLink: 'Términos del Servicio',
-        introNote: 'En resumen: el contenido de tu diario permanece en tu dispositivo. PrivoDiary utiliza Google Sign-In y solo trata datos limitados de la cuenta cuando son necesarios para el acceso a la app y a las funciones premium.',
-        nav: [
-          ['terms', '/terms/', 'Términos'],
-          ['overview', '#overview', 'Resumen'],
-          ['collect', '#collect', 'Datos'],
-          ['use', '#use', 'Uso'],
-          ['sharing', '#sharing', 'Cesión'],
-          ['storage', '#storage', 'Conservación'],
-          ['rights', '#rights', 'Tus derechos'],
-          ['children', '#children', 'Menores'],
-          ['changes', '#changes', 'Cambios'],
-          ['contact', '#contact', 'Contacto']
-        ],
-        sections: [
-          ['overview', '1. Resumen general', `<p>PrivoDiary es una aplicación de diario personal que invita al usuario a grabar breves entradas a lo largo del día.</p><p>La aplicación está diseñada principalmente para funcionar <strong>de forma local en el dispositivo del usuario</strong>. El contenido del diario no se sube a servidores externos como parte de la funcionalidad principal de la app, salvo que el propio usuario decida exportarlo o compartirlo mediante herramientas o servicios de terceros.</p><p>PrivoDiary utiliza <strong>Google Sign-In</strong> y puede tratar datos limitados relacionados con la cuenta cuando ello sea necesario para autenticar al usuario, habilitar funciones premium y asegurar el correcto funcionamiento de la aplicación.</p>`],
-          ['collect', '2. Qué datos pueden tratarse', `<p>Según las funciones que utilices, PrivoDiary puede tratar las siguientes categorías de datos:</p><ul><li><strong>Datos de cuenta</strong> — por ejemplo, tu dirección de correo electrónico, identificador de cuenta de Google, nombre de perfil y otra información básica facilitada a través de Google Sign-In.</li><li><strong>Contenido generado por el usuario</strong> — como vídeos del diario, notas de texto opcionales, etiquetas, marcas temporales y metadatos relacionados, almacenados localmente en tu dispositivo.</li><li><strong>Permisos del dispositivo</strong> — como cámara, micrófono, notificaciones y acceso a archivos o contenido multimedia, utilizados únicamente para permitir el funcionamiento de la app en tu dispositivo.</li><li><strong>Estado de suscripción o acceso</strong> — información necesaria para determinar si tu cuenta tiene habilitadas funciones premium.</li></ul><p class="muted">PrivoDiary no sube ni almacena de forma remota el contenido de vídeo del usuario como parte de su funcionalidad principal.</p>`],
-          ['use', '3. Cómo se usan los datos', `<ul><li>Para autenticar usuarios mediante Google Sign-In.</li><li>Para proporcionar acceso a la aplicación y a las funciones premium, cuando corresponda.</li><li>Para grabar, guardar, organizar, revisar y exportar entradas del diario en tu dispositivo.</li><li>Para enviar recordatorios o notificaciones locales que hayas activado.</li><li>Para generar en tu dispositivo vídeos-resumen diarios a partir de los clips grabados.</li><li>Para cumplir con obligaciones legales, cuando sea necesario.</li></ul>`],
-          ['sharing', '4. Cesión y divulgación de datos', `<p>PrivoDiary <strong>no vende</strong> datos personales de los usuarios.</p><p>El contenido de vídeo creado por el usuario permanece almacenado localmente en el dispositivo y no es compartido por PrivoDiary con terceros como parte de la funcionalidad principal de la aplicación.</p><p>Determinados datos limitados de la cuenta pueden ser tratados por terceros cuando sea necesario para el inicio de sesión, la distribución de la app, la gestión de suscripciones o el procesamiento de pagos, incluidos Google y las plataformas de tiendas de aplicaciones, conforme a sus propios términos y políticas.</p><p>Si decides exportar, transferir, respaldar o compartir tu contenido mediante aplicaciones de terceros, servicios en la nube, redes sociales, gestores de archivos o herramientas del dispositivo, dichas acciones se realizan <strong>bajo tu propia decisión y responsabilidad</strong>.</p>`],
-          ['storage', '5. Conservación y seguridad', `<p>El contenido del diario se almacena localmente en tu dispositivo. PrivoDiary no mantiene almacenamiento externo de ese contenido como parte de su funcionalidad principal.</p><p>La información limitada asociada a Google Sign-In o al estado de la suscripción puede tratarse en la medida necesaria para proporcionar acceso a la app y a sus funciones premium.</p><p>Aplicamos medidas técnicas y organizativas razonables destinadas a proteger la información personal. No obstante, ningún método de almacenamiento, transmisión o sistema de seguridad puede garantizar una seguridad absoluta. Por ello, no puede asegurarse una protección total.</p><ul><li><strong>Almacenamiento local</strong> — los vídeos del diario y el contenido relacionado se guardan en tu dispositivo.</li><li><strong>Plazo de conservación</strong> — el contenido almacenado localmente permanece en tu dispositivo hasta que lo elimines, desinstales la aplicación o lo borres por otro medio.</li></ul><p>Eres responsable de proteger el acceso a tu dispositivo, a tu cuenta de Google, a los archivos exportados, a las copias de seguridad y a cualquier servicio de terceros que utilices.</p>`],
-          ['permissions', '6. Permisos', `<p>Según tu dispositivo y las funciones que actives, PrivoDiary puede solicitar:</p><ul><li><strong>Cámara</strong> — para grabar vídeos del diario.</li><li><strong>Micrófono</strong> — para capturar el audio junto con la grabación de vídeo.</li><li><strong>Notificaciones</strong> — para recordarte que grabes momentos durante el día.</li><li><strong>Fotos / multimedia / archivos</strong> — para guardar, leer, exportar y compilar contenido de vídeo cuando sea necesario.</li></ul><p>Puedes gestionar los permisos desde la configuración de tu dispositivo. Desactivar determinados permisos puede limitar el funcionamiento de la aplicación.</p>`],
-          ['transfers', '7. Transferencias internacionales', `<p>PrivoDiary no transfiere el contenido de vídeo creado por el usuario a servidores externos como parte de su funcionalidad principal.</p><p>Cuando determinados datos limitados de la cuenta sean tratados por proveedores externos, como Google, dicho tratamiento puede implicar transferencias internacionales de datos conforme a sus salvaguardas legales y políticas aplicables.</p>`],
-          ['rights', '8. Tus derechos y opciones', `<p>Dependiendo de tu jurisdicción, puedes tener derecho a:</p><ul><li>acceder a los datos personales tratados en relación con tu cuenta;</li><li>solicitar la rectificación de datos inexactos de la cuenta;</li><li>solicitar la supresión de datos personales cuando proceda;</li><li>eliminar el contenido almacenado localmente directamente desde la app o desde tu dispositivo;</li><li>retirar tu consentimiento cuando el tratamiento se base en él;</li><li>dejar de utilizar la aplicación en cualquier momento.</li></ul>`],
-          ['children', '9. Privacidad de los menores', `<p>PrivoDiary no está dirigida a menores de la edad exigida por la legislación aplicable en su jurisdicción, salvo que se indique expresamente lo contrario.</p><p>La aplicación no recopila conscientemente datos personales de menores en vulneración de la legislación aplicable.</p>`],
-          ['third-party', '10. Servicios de terceros', `<p>PrivoDiary puede apoyarse en servicios de terceros cuando ello sea necesario para el funcionamiento de la aplicación, incluidos <strong>Google Sign-In</strong>, <strong>Google Play</strong> y <strong>Google Play Billing</strong>.</p><p>Dichos servicios pueden tratar datos personales de conformidad con sus propios términos y políticas de privacidad.</p>`],
-          ['changes', '11. Cambios en esta Política de Privacidad', `<p>Podemos actualizar esta Política de Privacidad periódicamente. Cuando lo hagamos, revisaremos la fecha de entrada en vigor indicada al inicio de esta página. Los cambios materiales también podrán comunicarse a través de la aplicación o por otros medios adecuados.</p>`],
-          ['contact', '12. Contacto', `<p>Si tienes preguntas, solicitudes o dudas sobre esta Política de Privacidad o sobre las prácticas de privacidad de la aplicación, puedes ponerte en contacto con nosotros aquí:</p><div class="contact-box"><strong>Yurii Gakhanov</strong><br>Email: <code class="inline">support@privodiary.com</code><br>Dirección: <code class="inline">C. Daganzo 3, 28028 Madrid, Spain</code></div>`]
-        ],
-        footer: '© <span id="year"></span> PrivoDiary. Todos los derechos reservados.'
+        brandTag: 'Un videodiario privado',
+        navHow: 'Cómo funciona', navWhy: 'Por qué importa', navPremium: 'Premium', navFaq: 'Preguntas',
+        heroEyebrow: 'Una forma más amable de estar contigo mismo',
+        heroTitle: 'Una forma más suave de notar tu día.',
+        heroText: 'PrivoDiary te ayuda a detenerte unos segundos durante el día, registrar lo que es real y volver a ello más tarde con más calma, claridad y amabilidad contigo mismo.',
+        ctaPrimary: 'Solicitar acceso al test cerrado',
+        ctaSecondary: 'Leer la Política de Privacidad',
+        premiumChip: 'Privado, tranquilo y pensado para la reflexión',
+        betaTitle: 'Acceso al test cerrado',
+        betaText: 'Para participar en el closed testing, envía un correo a support@privodiary.com solicitando acceso.',
+        heroNote: 'Sin feed social. Sin presión por aparentar. Solo un espacio privado para notar cómo se sintió realmente tu día.',
+        floatingTitle: 'Bastan unos segundos honestos',
+        floatingText: 'Los momentos pequeños, guardados con suavidad, pueden decir la verdad con más claridad que la memoria sola.',
+        howLabel: 'Cómo funciona',
+        howTitle: 'Lo bastante simple para volver. Lo bastante suave para quedarse.',
+        howText: 'El flujo se mantiene breve y silencioso para que el hábito acompañe tu día en lugar de interrumpirlo.',
+        step1Num: 'Paso 01', step2Num: 'Paso 02', step3Num: 'Paso 03',
+        step1Title: 'Recibe un recordatorio',
+        step1Text: 'Un recordatorio suave te invita a parar un momento y notar dónde estás y qué está pasando ahora mismo.',
+        step2Title: 'Guarda un pequeño momento',
+        step2Text: 'Graba un vídeo corto o escribe una nota rápida con estado de ánimo y etiquetas. No tiene que ser perfecto. Solo tiene que ser verdadero.',
+        step3Title: 'Vuelve al día con claridad',
+        step3Text: 'Al final del día, tus entradas se reúnen en un resumen privado que puedes revisar, guardar o exportar.',
+        whyLabel: 'Por qué importa',
+        whyTitle: 'Un día puede desaparecer cuando nada lo sostiene con suavidad.',
+        whyText: 'La memoria cambia cosas. El estrés las vuelve borrosas. La rutina puede volver invisibles días enteros. PrivoDiary deja una huella más serena y más amable a la que puedes volver después.',
+        why1: 'Una sensación más clara de cómo se viven de verdad tus días.',
+        why2: 'Un espacio privado para momentos normales, difíciles o importantes.',
+        why3: 'Un ritmo sencillo para la reflexión, el journaling y el autoconocimiento.',
+        why4: 'Un archivo honesto que acompaña la calma en lugar de la actuación.',
+        screen1: 'Controla recordatorios, tipos de nota, etiquetas y funciones premium.',
+        screen2: 'Todo se mantiene calmado y entendible: sin ruido y sin exceso visual.',
+        quote: '«No necesitas arreglarte primero. Solo necesitas una forma más tranquila de notar tu vida.»',
+        aud1: 'Autoconocimiento', aud2: 'Apoyo terapéutico', aud3: 'Cambios vitales', aud4: 'Memoria personal',
+        forWhoLabel: 'Para quién es',
+        forWhoTitle: 'Hecho para quienes quieren una relación más calmada con sus propios días.',
+        forWhoText: 'PrivoDiary encaja con personas reflexivas, usuarios en terapia, gente atravesando cambios, creadores que guardan momentos en bruto y cualquiera que quiera una forma más tranquila de entender cómo se está desplegando su vida.',
+        premiumLabel: 'Premium',
+        premiumTitle: 'La experiencia básica sigue siendo suave. Premium te da más espacio para adaptarla.',
+        premiumText: 'El núcleo del diario debe seguir siendo accesible. Premium está pensado para quien quiere rutinas más flexibles, exportaciones más limpias y un archivo más amplio.',
+        planBasicTag: 'Básico', planBasicPrice: 'Gratis', planBasicText: 'Suficiente para crear el hábito.',
+        basic1: 'Entradas en vídeo y texto', basic2: 'Recordatorios diarios', basic3: 'Resumen del día', basic4: 'Archivo básico y enlaces legales',
+        planPremiumTag: 'Premium', planPremiumPrice: 'Ampliado', planPremiumText: 'Más control para el uso a largo plazo.',
+        premium1: 'Configuración avanzada del horario', premium2: 'Opciones de marca de agua y hora', premium3: 'Acceso a un archivo más largo', premium4: 'Más control sobre resúmenes y exportación',
+        faqLabel: 'Preguntas frecuentes', faqTitle: 'Respuestas sencillas, en calma',
+        faq1q: '¿Es una red social pública?', faq1a: 'No. PrivoDiary está diseñado como diario privado. Compartir es opcional y depende del usuario.',
+        faq2q: '¿Puedo usar texto en lugar de vídeo?', faq2a: 'Sí. Hay notas rápidas de texto para los momentos en los que grabar vídeo no es cómodo.',
+        faq3q: '¿A quién le puede resultar útil?', faq3a: 'A personas interesadas en autoconocimiento, journaling, reflexión diaria, memoria personal y periodos de cambio.',
+        faq4q: '¿Dónde están las páginas legales?', faq4a: 'La Política de Privacidad y los Términos están disponibles en este sitio en inglés, ruso y español.',
+        finalLabel: 'Empieza con suavidad',
+        finalTitle: 'Empieza con un solo momento pequeño y deja que la comprensión crezca desde ahí.',
+        finalText: 'Cuando un día no deja huella, a veces parece que nunca ocurrió del todo. PrivoDiary te ayuda a guardar un registro pequeño y honesto antes de que se desvanezca. Para entrar en la fase de test cerrado, escribe a support@privodiary.com.',
+        finalCta: 'Solicitar acceso por correo',
+        linkPrivacy: 'Política de Privacidad', linkTerms: 'Términos del Servicio',
+        contactTitle: '¿Necesitas acceso o tienes una pregunta?',
+        contactText: 'Para acceder al closed testing, hacer preguntas sobre el producto o conversar con calma sobre una colaboración, escribe a support@privodiary.com.',
+        footerText: 'Tranquilo, privado y hecho para la vida real.'
+      },
+      ru: {
+        brandTag: 'Личный видеодневник',
+        navHow: 'Как это работает', navWhy: 'Зачем это нужно', navPremium: 'Премиум', navFaq: 'Вопросы',
+        heroEyebrow: 'Более мягкий способ побыть с собой',
+        heroTitle: 'Более мягкий способ замечать свой день.',
+        heroText: 'PrivoDiary помогает на несколько секунд остановиться в течение дня, зафиксировать то, что есть на самом деле, и позже вернуться к этому с большим спокойствием, ясностью и бережностью к себе.',
+        ctaPrimary: 'Запросить доступ к закрытому тесту',
+        ctaSecondary: 'Открыть Политику конфиденциальности',
+        premiumChip: 'Тихо, приватно и создано для рефлексии',
+        betaTitle: 'Доступ к закрытому тестированию',
+        betaText: 'Чтобы участвовать в закрытом тестировании, отправь письмо на support@privodiary.com и запроси доступ.',
+        heroNote: 'Без социальной ленты. Без давления выглядеть лучше. Просто личное пространство, чтобы замечать, каким на самом деле был твой день.',
+        floatingTitle: 'Иногда достаточно нескольких честных секунд',
+        floatingText: 'Небольшие моменты, сохранённые мягко и без нажима, могут рассказать правду яснее, чем память сама по себе.',
+        howLabel: 'Как это работает',
+        howTitle: 'Достаточно просто, чтобы возвращаться. Достаточно мягко, чтобы это осталось.',
+        howText: 'Сценарий остаётся коротким и тихим, чтобы привычка поддерживала день, а не превращалась в ещё одно требование к себе.',
+        step1Num: 'Шаг 01', step2Num: 'Шаг 02', step3Num: 'Шаг 03',
+        step1Title: 'Получить напоминание',
+        step1Text: 'Мягкое напоминание приглашает ненадолго остановиться и заметить, где ты сейчас и что происходит в этот момент.',
+        step2Title: 'Сохранить один небольшой момент',
+        step2Text: 'Запиши короткое видео или оставь быструю текстовую заметку с настроением и тегами. Это не должно быть идеальным. Достаточно, чтобы это было правдой.',
+        step3Title: 'Вернуться к дню с большей ясностью',
+        step3Text: 'К концу дня записи собираются в один личный итог, который можно пересмотреть, сохранить или экспортировать.',
+        whyLabel: 'Зачем это нужно',
+        whyTitle: 'День легко исчезает, когда ничто не удерживает его мягко.',
+        whyText: 'Память меняет детали. Стресс размывает их. Рутина делает целые дни почти невидимыми. PrivoDiary оставляет более спокойный и более бережный след, к которому можно вернуться позже.',
+        why1: 'Более ясное ощущение того, как на самом деле проживаются твои дни.',
+        why2: 'Личное пространство для обычных, трудных и важных моментов.',
+        why3: 'Простой ритм для рефлексии, дневника и лучшего понимания себя.',
+        why4: 'Честный архив, который поддерживает спокойствие, а не позирование.',
+        screen1: 'Управляй напоминаниями, типами заметок, тегами и премиум-функциями.',
+        screen2: 'Интерфейс остаётся спокойным и понятным — без шума и лишней суеты.',
+        quote: '«Тебе не нужно сначала чинить себя. Тебе нужен лишь более спокойный способ замечать свою жизнь.»',
+        aud1: 'Саморефлексия', aud2: 'Поддержка терапии', aud3: 'Переходный период', aud4: 'Память о жизни',
+        forWhoLabel: 'Для кого',
+        forWhoTitle: 'Для людей, которым нужен более спокойный контакт со своими днями.',
+        forWhoText: 'PrivoDiary подходит рефлексирующим людям, тем, кто проходит терапию, переживает перемены, собирает сырой материал для творчества или просто хочет более тихим способом понимать, как на самом деле разворачивается его жизнь.',
+        premiumLabel: 'Премиум',
+        premiumTitle: 'Базовый опыт остаётся мягким. Премиум даёт больше пространства для настройки.',
+        premiumText: 'Основной дневниковый ритуал должен оставаться доступным. Премиум нужен тем, кто хочет более гибкий график, более чистый экспорт и более длинный архив.',
+        planBasicTag: 'Базовый', planBasicPrice: 'Бесплатно', planBasicText: 'Достаточно, чтобы выстроить привычку.',
+        basic1: 'Видео- и текстовые записи', basic2: 'Ежедневные напоминания', basic3: 'Итог дня', basic4: 'Базовый архив и юридические страницы',
+        planPremiumTag: 'Премиум', planPremiumPrice: 'Расширенно', planPremiumText: 'Больше контроля для долгого использования.',
+        premium1: 'Расширенная настройка расписания', premium2: 'Параметры водяного знака и времени', premium3: 'Доступ к более длинному архиву', premium4: 'Дополнительный контроль итогов и экспорта',
+        faqLabel: 'Вопросы', faqTitle: 'Простые ответы, без лишнего шума',
+        faq1q: 'Это публичная социальная сеть?', faq1a: 'Нет. PrivoDiary задуман как личный дневник. Публикация и шаринг полностью опциональны.',
+        faq2q: 'Можно использовать текст вместо видео?', faq2a: 'Да. Есть быстрые текстовые заметки для моментов, когда видео записывать неудобно.',
+        faq3q: 'Кому это может быть полезно?', faq3a: 'Тем, кто интересуется самонаблюдением, дневниковыми практиками, ежедневной рефлексией, памятью о жизни и периодами перемен.',
+        faq4q: 'Где посмотреть юридические документы?', faq4a: 'Политика конфиденциальности и Условия использования доступны на этом сайте на английском, русском и испанском языках.',
+        finalLabel: 'Начни мягко',
+        finalTitle: 'Начни с одного небольшого момента — и пусть понимание вырастает из этого.',
+        finalText: 'Когда день не оставляет после себя никакого следа, иногда кажется, будто его и не было. PrivoDiary помогает сохранить небольшой, но честный отпечаток до того, как день растворится. Чтобы присоединиться к закрытому тестированию, отправь письмо на support@privodiary.com.',
+        finalCta: 'Запросить доступ по почте',
+        linkPrivacy: 'Политика конфиденциальности', linkTerms: 'Условия использования',
+        contactTitle: 'Нужен доступ или есть вопрос?',
+        contactText: 'Для доступа к закрытому тестированию, вопросов о продукте или спокойного разговора о сотрудничестве напиши на support@privodiary.com.',
+        footerText: 'Тихо, приватно и сделано для реальной жизни.'
       }
     };
 
-    function detectLanguage() {
-      const params = new URLSearchParams(window.location.search);
-      const explicit = params.get('lang');
-      if (explicit && translations[explicit]) return explicit;
-      const saved = localStorage.getItem('privo_lang');
-      if (saved && translations[saved]) return saved;
-      const browser = (navigator.language || 'en').slice(0,2).toLowerCase();
-      return translations[browser] ? browser : 'en';
+    const langButtons = document.querySelectorAll('[data-lang]');
+    const langFromQuery = new URLSearchParams(location.search).get('lang');
+    const browserLang = (navigator.language || 'en').slice(0,2).toLowerCase();
+    const supported = ['en','es','ru'];
+    let lang = supported.includes(langFromQuery) ? langFromQuery : (localStorage.getItem('privo_lang') || (supported.includes(browserLang) ? browserLang : 'en'));
+
+    function applyLang(current) {
+      const t = copy[current] || copy.en;
+      document.documentElement.lang = current;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+      langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === current));
+      localStorage.setItem('privo_lang', current);
+      const suffix = '?lang=' + current;
+      document.getElementById('privacyButton').href = '/privacy/' + suffix;
+      document.getElementById('privacyLinkFooter').href = '/privacy/' + suffix;
+      document.getElementById('termsLinkFooter').href = '/terms/' + suffix;
+      const url = new URL(location.href);
+      url.searchParams.set('lang', current);
+      history.replaceState({}, '', url);
+      document.title = 'PrivoDiary — ' + t.heroEyebrow;
+      const desc = document.querySelector('meta[name="description"]');
+      if (desc) desc.setAttribute('content', t.heroText);
     }
 
-    function withLang(url, lang) {
-      const absolute = new URL(url, window.location.origin);
-      absolute.searchParams.set('lang', lang);
-      if (window.location.pathname.includes('/terms/')) {
-        absolute.pathname = '/terms/';
-      }
-      return absolute.pathname + absolute.search;
-    }
-
-    function render(lang) {
-      const t = translations[lang];
-      document.documentElement.lang = t.htmlLang;
-      document.title = t.title;
-      document.querySelector('meta[name="description"]').setAttribute('content', t.description);
-      document.getElementById('eyebrow').textContent = t.eyebrow;
-      document.getElementById('pageTitle').textContent = t.pageTitle;
-      document.getElementById('pageSubtitle').textContent = t.pageSubtitle;
-      document.getElementById('pageMeta').innerHTML = t.pageMeta;
-      document.getElementById('langLabel').textContent = t.langLabel;
-      document.getElementById('termsLinkTop').textContent = t.termsLink;
-      document.getElementById('termsLinkTop').href = withLang('/terms/', lang);
-      document.getElementById('introNote').textContent = t.introNote;
-      document.getElementById('footerText').innerHTML = t.footer;
-      document.getElementById('year').textContent = new Date().getFullYear();
-
-      const nav = document.getElementById('navLinks');
-      nav.innerHTML = t.nav.map(([id, href, label]) => `<a href="${href.startsWith('#') ? href : withLang(href, lang)}" data-id="${id}">${label}</a>`).join('');
-
-      const content = document.getElementById('content');
-      content.innerHTML = t.sections.map(([id, title, html]) => `<section id="${id}" class="card"><h2>${title}</h2>${html}</section>`).join('');
-
-      document.getElementById('langSelect').value = lang;
-      localStorage.setItem('privo_lang', lang);
-
-      const url = new URL(window.location.href);
-      url.searchParams.set('lang', lang);
-      history.replaceState({}, '', url.pathname + url.search + url.hash);
-    }
-
-    const initialLang = detectLanguage();
-    document.getElementById('langSelect').addEventListener('change', (e) => render(e.target.value));
-    render(initialLang);
+    langButtons.forEach(btn => btn.addEventListener('click', () => applyLang(btn.dataset.lang)));
+    applyLang(lang);
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
